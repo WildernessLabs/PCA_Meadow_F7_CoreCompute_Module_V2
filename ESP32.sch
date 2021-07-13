@@ -4,9 +4,9 @@ EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
 Sheet 4 4
-Title "F7 Micro Embed"
-Date "2019-06-15"
-Rev "A"
+Title "F7 Core Compute Module"
+Date "2021-07-12"
+Rev "V2.a"
 Comp ""
 Comment1 "S.Johnson"
 Comment2 ""
