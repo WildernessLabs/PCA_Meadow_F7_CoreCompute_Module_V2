@@ -3,10 +3,10 @@ EELAYER 30 0
 EELAYER END
 $Descr B 17000 11000
 encoding utf-8
-Sheet 1 1
-Title "F7 Core Compute Module"
-Date "2021-07-12"
-Rev "V2.a"
+Sheet 3 4
+Title "Core Compute Module V2"
+Date "2021-08-02"
+Rev "A"
 Comp ""
 Comment1 "S.Johnson"
 Comment2 ""
@@ -521,6 +521,8 @@ Connection ~ 8400 800
 Wire Wire Line
 	8400 800  8500 800 
 Connection ~ 8300 800 
+Wire Wire Line
+	8300 800  8350 800 
 Connection ~ 8200 800 
 Wire Wire Line
 	8200 800  8300 800 
@@ -1192,9 +1194,9 @@ PB0_TIM3CH3
 Text Label 11100 3100 2    50   ~ 0
 PB1_TIM3CH4
 Text Label 11100 3500 2    50   ~ 0
-SPI3_COPI
+SPI3_MOSI
 Text HLabel 11300 3500 2    50   BiDi ~ 0
-PB5_SPI3_COPI
+SPI3_MOSI
 Text HLabel 11300 3600 2    50   BiDi ~ 0
 I2C1_SCL
 Text HLabel 11300 3700 2    50   BiDi ~ 0
@@ -1204,7 +1206,7 @@ CAN1_RX
 Text HLabel 11300 3900 2    50   Output ~ 0
 CAN1_TX
 Text HLabel 11300 4100 2    50   BiDi ~ 0
-PB11_I2C2_SDA
+I2C2_SDA
 Text HLabel 11300 4300 2    50   Output ~ 0
 PB13
 Text HLabel 11300 4400 2    50   Output ~ 0
@@ -1251,7 +1253,6 @@ NoConn ~ 5700 3900
 NoConn ~ 5700 4000
 NoConn ~ 5700 4100
 NoConn ~ 5700 4200
-NoConn ~ 5700 4500
 Wire Wire Line
 	5700 4300 4800 4300
 Wire Wire Line
@@ -1270,9 +1271,6 @@ Text HLabel 4800 4300 0    50   Input ~ 0
 UART4_RX
 Text HLabel 4800 4400 0    50   BiDi ~ 0
 PI10
-NoConn ~ 5700 5300
-NoConn ~ 5700 5400
-NoConn ~ 5700 5500
 NoConn ~ 5700 5600
 NoConn ~ 5700 6200
 NoConn ~ 5700 6100
@@ -1283,7 +1281,7 @@ Wire Wire Line
 Wire Wire Line
 	5700 6000 5100 6000
 Text HLabel 5100 5700 0    50   BiDi ~ 0
-PH10
+PH10_TIM5CH1
 Text HLabel 5100 5900 0    50   Output ~ 0
 OTG_FS_PWRON
 Text HLabel 5100 6000 0    50   Output ~ 0
@@ -1292,9 +1290,9 @@ NoConn ~ 5700 7000
 NoConn ~ 5700 7100
 Wire Wire Line
 	5700 6700 5100 6700
+Text HLabel 5100 6700 0    50   Input ~ 0
+PG3_PID2
 NoConn ~ 5700 8700
-NoConn ~ 5700 8900
-NoConn ~ 5700 9000
 NoConn ~ 5700 9100
 Wire Wire Line
 	5700 8800 5200 8800
@@ -1427,8 +1425,6 @@ Wire Wire Line
 	2700 4700 5700 4700
 Wire Wire Line
 	10600 7800 11400 7800
-NoConn ~ 10600 5900
-NoConn ~ 10600 6000
 Text HLabel 11300 4700 2    50   Input ~ 0
 PC0_ADC1_IN10
 Text HLabel 11300 4800 2    50   Input ~ 0
@@ -1446,7 +1442,7 @@ PC9_TIM8CH4
 Text HLabel 11300 5700 2    50   BiDi ~ 0
 PC10_SPI3_SCK
 Text HLabel 11300 5800 2    50   BiDi ~ 0
-PC11_SPI3_CIPO
+PC11_SPI3_MISO
 Entry Wire Line
 	11400 6400 11500 6300
 Entry Wire Line
@@ -1472,10 +1468,6 @@ Text HLabel 11300 1800 2    50   Output ~ 0
 PA5_DAC_OUT2
 Text HLabel 11300 2000 2    50   Input ~ 0
 PA7_ADC1_IN7
-Wire Wire Line
-	10600 8400 11700 8400
-Text HLabel 11700 8400 2    50   BiDi ~ 0
-PE3
 NoConn ~ 10600 8500
 NoConn ~ 10600 8600
 NoConn ~ 10600 8700
@@ -1529,6 +1521,20 @@ Text Label 2900 2650 0    50   ~ 0
 VBAT
 Text HLabel 3900 1400 0    50   Input ~ 0
 RESET_L
+$Comp
+L SLJ_Pwr_symbols:+3V3 #PWR01
+U 1 1 5DCE9531
+P 8350 800
+F 0 "#PWR01" H 8681 724 50  0001 C CNN
+F 1 "+3V3" H 8365 1003 50  0000 C CNN
+F 2 "" H 8350 800 50  0001 C CNN
+F 3 "" H 8350 800 50  0001 C CNN
+	1    8350 800 
+	1    0    0    -1  
+$EndComp
+Connection ~ 8350 800 
+Wire Wire Line
+	8350 800  8400 800 
 Wire Wire Line
 	1800 2700 2200 2700
 Connection ~ 2900 4800
@@ -1544,17 +1550,6 @@ Text Label 5300 7700 0    50   ~ 0
 ETH_TXD0
 Text Label 5300 7800 0    50   ~ 0
 ETH_TXD1
-$Comp
-L MCU_ST_STM32F7:STM32F777IIKx U3
-U 1 1 5D09BECD
-P 8200 5400
-F 0 "U3" H 6000 9800 50  0000 C CNN
-F 1 "STM32F777IIKx" H 6200 9700 50  0000 C CNN
-F 2 "Package_BGA:UFBGA-201_10x10mm_Layout15x15_P0.65mm" H 5900 1100 50  0001 R CNN
-F 3 "http://www.st.com/st-web-ui/static/active/en/resource/technical/document/datasheet/DM00225424.pdf" H 8200 5400 50  0001 C CNN
-	1    8200 5400
-	1    0    0    -1  
-$EndComp
 NoConn ~ 5700 5800
 Wire Wire Line
 	5700 7500 5100 7500
@@ -1634,9 +1629,7 @@ Text HLabel 5100 7400 0    50   BiDi ~ 0
 PG10
 Text HLabel 5100 7300 0    50   BiDi ~ 0
 PG9
-Text Label 10900 8400 0    50   ~ 0
-HEADER_D15
-Text Label 5100 6700 0    50   ~ 0
+Text Label 5200 6700 0    50   ~ 0
 PROD_ID2
 Wire Wire Line
 	10600 7000 11550 7000
@@ -1653,123 +1646,79 @@ PD7
 Text HLabel 3800 1700 0    50   Input ~ 0
 BOOT0
 Wire Wire Line
-	10600 6200 11250 6200
-Text Label 11250 6200 2    50   ~ 0
-PROD_ID0
+	10600 6100 11300 6100
 Wire Wire Line
-	10600 6100 11250 6100
-Text Label 11250 6100 2    50   ~ 0
+	10600 6200 11300 6200
+Text Label 10750 6100 0    50   ~ 0
 PROD_ID1
-Text Label 1800 7400 0    50   ~ 0
-PROD_ID2
-Text Label 1800 7250 0    50   ~ 0
-PROD_ID1
-Text Label 1800 7100 0    50   ~ 0
+Text Label 10750 6200 0    50   ~ 0
 PROD_ID0
-$Comp
-L SLJ_Resistor_0201:R_4K7_1%_0201 R10
-U 1 1 6106F6A3
-P 3300 7750
-F 0 "R10" H 3368 7891 50  0000 L CNN
-F 1 "R_4K7_1%_0201" H 3285 7157 50  0001 C CNN
-F 2 "SLJ_SMT:R_0201" H 3274 7317 50  0001 C CNN
-F 3 "~" H 3300 7800 50  0001 C CNN
-F 4 "Yageo" H 3263 7089 50  0001 C CNN "MF"
-F 5 "RC0201FR-074K7L" H 3258 7226 50  0001 C CNN "PN"
-F 6 "4.7K" H 3368 7800 50  0000 L CNN "Res_value"
-F 7 "Vishay Dale" H 3300 7750 50  0001 C CNN "MF2"
-F 8 "CRCW02014K70FKED" H 3300 7750 50  0001 C CNN "PN2"
-F 9 "DNI" H 3368 7709 50  0000 L CNN "DNI"
-	1    3300 7750
-	1    0    0    -1  
-$EndComp
-$Comp
-L SLJ_Resistor_0201:R_4K7_1%_0201 R9
-U 1 1 6107246C
-P 2850 7750
-F 0 "R9" H 2918 7846 50  0000 L CNN
-F 1 "R_4K7_1%_0201" H 2835 7157 50  0001 C CNN
-F 2 "SLJ_SMT:R_0201" H 2824 7317 50  0001 C CNN
-F 3 "~" H 2850 7800 50  0001 C CNN
-F 4 "Yageo" H 2813 7089 50  0001 C CNN "MF"
-F 5 "RC0201FR-074K7L" H 2808 7226 50  0001 C CNN "PN"
-F 6 "4.7K" H 2918 7755 50  0000 L CNN "Res_value"
-F 7 "Vishay Dale" H 2850 7750 50  0001 C CNN "MF2"
-F 8 "CRCW02014K70FKED" H 2850 7750 50  0001 C CNN "PN2"
-F 9 "" H 2918 7709 50  0000 L CNN "DNI"
-	1    2850 7750
-	1    0    0    -1  
-$EndComp
-$Comp
-L SLJ_Resistor_0201:R_4K7_1%_0201 R6
-U 1 1 61072C8F
-P 2400 7750
-F 0 "R6" H 2468 7846 50  0000 L CNN
-F 1 "R_4K7_1%_0201" H 2385 7157 50  0001 C CNN
-F 2 "SLJ_SMT:R_0201" H 2374 7317 50  0001 C CNN
-F 3 "~" H 2400 7800 50  0001 C CNN
-F 4 "Yageo" H 2363 7089 50  0001 C CNN "MF"
-F 5 "RC0201FR-074K7L" H 2358 7226 50  0001 C CNN "PN"
-F 6 "4.7K" H 2468 7755 50  0000 L CNN "Res_value"
-F 7 "Vishay Dale" H 2400 7750 50  0001 C CNN "MF2"
-F 8 "CRCW02014K70FKED" H 2400 7750 50  0001 C CNN "PN2"
-F 9 "" H 2468 7709 50  0000 L CNN "DNI"
-	1    2400 7750
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	2400 7550 2400 7400
-Wire Wire Line
-	2400 7400 1800 7400
-Wire Wire Line
-	2850 7550 2850 7250
-Wire Wire Line
-	2850 7250 1800 7250
-Wire Wire Line
-	3300 7550 3300 7100
-Wire Wire Line
-	3300 7100 1800 7100
-Wire Wire Line
-	2400 7850 2400 8050
-Wire Wire Line
-	2400 8050 2650 8050
-Wire Wire Line
-	2850 8050 2850 7850
-Wire Wire Line
-	2850 8050 3300 8050
-Wire Wire Line
-	3300 8050 3300 7850
-Connection ~ 2850 8050
-Wire Wire Line
-	2650 8050 2650 8200
-Connection ~ 2650 8050
-Wire Wire Line
-	2650 8050 2850 8050
-$Comp
-L power:GND #PWR08
-U 1 1 61126E2B
-P 2650 8200
-F 0 "#PWR08" H 2650 7950 50  0001 C CNN
-F 1 "GND" H 2655 8027 50  0000 C CNN
-F 2 "" H 2650 8200 50  0001 C CNN
-F 3 "" H 2650 8200 50  0001 C CNN
-	1    2650 8200
-	1    0    0    -1  
-$EndComp
-Text Notes 700  6950 0    50   ~ 0
-PROD_ID = 0x01\nUSE INTERNAL PULL UPS ON POWER UP TO GET BOARD VERSION\nTURN OFF INTERNAL PULL UPS AFTER READING TO SAVE POWER FOR LOW POWER MODE\n
-Wire Wire Line
-	8300 800  8400 800 
-Text Notes 12650 1600 0    750  ~ 150
-STM32
+Text HLabel 11300 6100 2    50   Input ~ 0
+PC14_PID1
+Text HLabel 11300 6200 2    50   Input ~ 0
+PC15_PID0
 Wire Wire Line
 	10600 4200 11300 4200
 Text HLabel 11300 4200 2    50   BiDi ~ 0
 PB12
+$Comp
+L MCU_ST_STM32F7:STM32F777IIKx U1
+U 1 1 5D09BECD
+P 8200 5400
+F 0 "U1" H 6000 9800 50  0000 C CNN
+F 1 "STM32F777IIKx" H 6200 9700 50  0000 C CNN
+F 2 "Package_BGA:UFBGA-201_10x10mm_Layout15x15_P0.65mm" H 5900 1100 50  0001 R CNN
+F 3 "http://www.st.com/st-web-ui/static/active/en/resource/technical/document/datasheet/DM00225424.pdf" H 8200 5400 50  0001 C CNN
+	1    8200 5400
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	10600 5900 11300 5900
+Text HLabel 11300 5900 2    50   Output ~ 0
+PC12_UART5_TX
 Wire Wire Line
 	5700 7600 5250 7600
 Text HLabel 5250 7600 0    50   BiDi ~ 0
 PG12
+NoConn ~ 10600 8400
+Wire Wire Line
+	5700 5300 5100 5300
+Text HLabel 5100 5300 0    50   BiDi ~ 0
+PH6
+Wire Wire Line
+	5700 5500 5100 5500
+Text HLabel 5100 5500 0    50   BiDi ~ 0
+PH8
+Text Label 5300 5300 0    50   ~ 0
+SPI5_CLK
+Text Label 5300 5500 0    50   ~ 0
+I2C3_SDA
+Wire Wire Line
+	5700 8900 5200 8900
+Wire Wire Line
+	5700 9000 5200 9000
+Text HLabel 5200 8900 0    50   BiDi ~ 0
+PF8
+Text HLabel 5200 9000 0    50   BiDi ~ 0
+PF9
+Text Label 5300 8900 0    50   ~ 0
+SPI3_CIPO
+Text Label 5300 9000 0    50   ~ 0
+SPI3_COPI
+Wire Wire Line
+	5700 5400 5100 5400
+Text HLabel 5100 5400 0    50   BiDi ~ 0
+PH7
+Text Label 5300 5400 0    50   ~ 0
+I2C3_SCL
+Text Notes 15200 1150 2    200  ~ 40
+STM32
+Wire Wire Line
+	10600 6000 11300 6000
+Text HLabel 11300 6000 2    50   Input ~ 0
+PC13_PID3
+Wire Wire Line
+	5700 4500 4800 4500
 Wire Wire Line
 	10600 7500 12400 7500
 Wire Bus Line
@@ -1778,4 +1727,6 @@ Wire Bus Line
 	11500 6300 11500 9900
 Wire Bus Line
 	4400 6150 4400 9700
+Text HLabel 4800 4500 0    50   BiDi ~ 0
+PI11
 $EndSCHEMATC
