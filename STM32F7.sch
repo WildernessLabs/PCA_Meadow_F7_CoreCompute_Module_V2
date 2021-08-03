@@ -3,7 +3,7 @@ EELAYER 30 0
 EELAYER END
 $Descr B 17000 11000
 encoding utf-8
-Sheet 3 4
+Sheet 1 1
 Title "F7 Core Compute Module"
 Date "2021-07-12"
 Rev "V2.a"
@@ -1429,7 +1429,6 @@ Wire Wire Line
 	10600 7800 11400 7800
 NoConn ~ 10600 5900
 NoConn ~ 10600 6000
-NoConn ~ 10600 6100
 Text HLabel 11300 4700 2    50   Input ~ 0
 PC0_ADC1_IN10
 Text HLabel 11300 4800 2    50   Input ~ 0
@@ -1769,6 +1768,8 @@ Text HLabel 11300 4200 2    50   BiDi ~ 0
 PB12
 Wire Wire Line
 	5700 7600 5250 7600
+Text HLabel 5250 7600 0    50   BiDi ~ 0
+PG12
 Wire Wire Line
 	10600 7500 12400 7500
 Wire Bus Line
@@ -1777,6 +1778,4 @@ Wire Bus Line
 	11500 6300 11500 9900
 Wire Bus Line
 	4400 6150 4400 9700
-Text HLabel 5250 7600 0    50   BiDi ~ 0
-PG12
 $EndSCHEMATC
