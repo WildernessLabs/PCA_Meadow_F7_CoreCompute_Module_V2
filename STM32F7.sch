@@ -3,7 +3,7 @@ EELAYER 30 0
 EELAYER END
 $Descr B 17000 11000
 encoding utf-8
-Sheet 3 4
+Sheet 4 4
 Title "Core Compute Module V2"
 Date "2021-08-02"
 Rev "A"
@@ -1193,26 +1193,24 @@ Text Label 11100 3000 2    50   ~ 0
 PB0_TIM3CH3
 Text Label 11100 3100 2    50   ~ 0
 PB1_TIM3CH4
-Text Label 11100 3500 2    50   ~ 0
-SPI3_MOSI
 Text HLabel 11300 3500 2    50   BiDi ~ 0
-SPI3_MOSI
+PB5_SPI3_COPI
 Text HLabel 11300 3600 2    50   BiDi ~ 0
-I2C1_SCL
+PB6_I2C1_SCL
 Text HLabel 11300 3700 2    50   BiDi ~ 0
-I2C1_SDA
+PB7_I2C1_SDA
 Text HLabel 11300 3800 2    50   Input ~ 0
-CAN1_RX
+PB8_CAN1_RX
 Text HLabel 11300 3900 2    50   Output ~ 0
-CAN1_TX
+PB9_CAN1_TX
 Text HLabel 11300 4100 2    50   BiDi ~ 0
-I2C2_SDA
+PB11_I2C2_SDA
 Text HLabel 11300 4300 2    50   Output ~ 0
 PB13
 Text HLabel 11300 4400 2    50   Output ~ 0
-USART1_TX
+PB14_USART1_TX
 Text HLabel 11300 4500 2    50   Input ~ 0
-USART1_RX
+PB15_USART1_RX
 Text Label 11100 3600 2    50   ~ 0
 I2C1_SCL
 Text Label 11100 3700 2    50   ~ 0
@@ -1268,12 +1266,11 @@ SPI2_MISO
 Text HLabel 4800 3700 0    50   Output ~ 0
 SPI2_MOSI
 Text HLabel 4800 4300 0    50   Input ~ 0
-UART4_RX
+PI9_UART4_RX
 Text HLabel 4800 4400 0    50   BiDi ~ 0
 PI10
 NoConn ~ 5700 5600
 NoConn ~ 5700 6200
-NoConn ~ 5700 6100
 Wire Wire Line
 	5700 5700 5100 5700
 Wire Wire Line
@@ -1283,9 +1280,9 @@ Wire Wire Line
 Text HLabel 5100 5700 0    50   BiDi ~ 0
 PH10_TIM5CH1
 Text HLabel 5100 5900 0    50   Output ~ 0
-OTG_FS_PWRON
+PH12_OTG_FS_PWRON
 Text HLabel 5100 6000 0    50   Output ~ 0
-UART4_TX
+PH13_UART4_TX
 NoConn ~ 5700 7000
 NoConn ~ 5700 7100
 Wire Wire Line
@@ -1430,7 +1427,7 @@ PC0_ADC1_IN10
 Text HLabel 11300 4800 2    50   Input ~ 0
 PC1_ADC1_IN11
 Text HLabel 11300 4900 2    50   Input ~ 0
-OTG_FS_OC
+PC2_OTG_FS_OC
 Text HLabel 11300 5300 2    50   Input ~ 0
 PC6_TIM3CH1
 Text HLabel 11300 5400 2    50   BiDi ~ 0
@@ -1442,7 +1439,7 @@ PC9_TIM8CH4
 Text HLabel 11300 5700 2    50   BiDi ~ 0
 PC10_SPI3_SCK
 Text HLabel 11300 5800 2    50   BiDi ~ 0
-PC11_SPI3_MISO
+PC11_SPI3_CIPO
 Entry Wire Line
 	11400 6400 11500 6300
 Entry Wire Line
@@ -1719,6 +1716,10 @@ Text HLabel 11300 6000 2    50   Input ~ 0
 PC13_PID3
 Wire Wire Line
 	5700 4500 4800 4500
+Text HLabel 4800 4500 0    50   BiDi ~ 0
+PI11
+Wire Wire Line
+	5700 6100 5100 6100
 Wire Wire Line
 	10600 7500 12400 7500
 Wire Bus Line
@@ -1727,6 +1728,6 @@ Wire Bus Line
 	11500 6300 11500 9900
 Wire Bus Line
 	4400 6150 4400 9700
-Text HLabel 4800 4500 0    50   BiDi ~ 0
-PI11
+Text HLabel 5100 6100 0    50   BiDi ~ 0
+PH14
 $EndSCHEMATC
