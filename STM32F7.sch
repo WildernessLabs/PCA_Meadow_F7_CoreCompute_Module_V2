@@ -1283,7 +1283,6 @@ Text HLabel 5100 5900 0    50   Output ~ 0
 PH12_OTG_FS_PWRON
 Text HLabel 5100 6000 0    50   Output ~ 0
 PH13_UART4_TX
-NoConn ~ 5700 7000
 NoConn ~ 5700 7100
 Wire Wire Line
 	5700 6700 5100 6700
@@ -1720,6 +1719,10 @@ Text HLabel 4800 4500 0    50   BiDi ~ 0
 PI11
 Wire Wire Line
 	5700 6100 5100 6100
+Text HLabel 5100 6100 0    50   BiDi ~ 0
+PH14
+Wire Wire Line
+	5700 7000 5100 7000
 Wire Wire Line
 	10600 7500 12400 7500
 Wire Bus Line
@@ -1728,6 +1731,6 @@ Wire Bus Line
 	11500 6300 11500 9900
 Wire Bus Line
 	4400 6150 4400 9700
-Text HLabel 5100 6100 0    50   BiDi ~ 0
-PH14
+Text HLabel 5100 7000 0    50   BiDi ~ 0
+PG6
 $EndSCHEMATC
