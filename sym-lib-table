@@ -1,3 +1,5 @@
 (sym_lib_table
-  (lib (name F7MicroEmbed_RevA-rescue)(type Legacy)(uri ${KIPRJMOD}/F7MicroEmbed_RevA-rescue.lib)(options "")(descr "")(disabled))
+  (version 7)
+  (lib (name "F7MicroEmbed_RevA-rescue")(type "Legacy")(uri "${KIPRJMOD}/F7MicroEmbed_RevA-rescue.lib")(options "")(descr "")(disabled))
+  (lib (name "F7CoreComputeModuleV2-rescue")(type "KiCad")(uri "${KIPRJMOD}/F7CoreComputeModuleV2-rescue.kicad_sym")(options "")(descr ""))
 )

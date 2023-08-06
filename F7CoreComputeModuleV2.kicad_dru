@@ -1,0 +1,20 @@
+(version 1)
+(rule "top 50Ω"
+(layer F1.Cu)
+(condition "A.NetClass == '50ohm'")
+(constraint track_width (min 5mil) (max 5mil)))
+
+(rule "layer4 50Ω"
+(layer Layer4.Cu)
+(condition "A.NetClass == '50ohm'")
+(constraint track_width (min 4.9mil) (max 4.9mil)))
+
+(rule "layer6 50Ω"
+(layer Layer6.Cu)
+(condition "A.NetClass == '50ohm'")
+(constraint track_width (min 4.5mil) (max 4.5mil)))
+
+(rule "layer7 50Ω"
+(layer Layer7.Cu)
+(condition "A.NetClass == '50ohm'")
+(constraint track_width (min 4.5mil) (max 4.5mil)))
