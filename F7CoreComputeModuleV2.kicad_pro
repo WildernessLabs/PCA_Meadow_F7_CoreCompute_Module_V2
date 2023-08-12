@@ -571,7 +571,7 @@
       "svg": "",
       "vrml": ""
     },
-    "page_layout_descr_file": "C:/wildernesslabs/Circuit_Part_Libraries/Libraries_Kicad/WildernessLab_pagelayout.kicad_wks"
+    "page_layout_descr_file": "${WL_LIB}/WildernessLab_pagelayout.kicad_wks"
   },
   "schematic": {
     "annotate_start_num": 0,
